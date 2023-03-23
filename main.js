@@ -278,31 +278,50 @@
 
 // extends & super
 
-class Animal {
-    constructor(name) {
-        this.name = name
-    }
+// class Animal {
+//     constructor(name) {
+//         this.name = name
+//     }
     
-    sound() {
-        console.log(`Zwierzak robi hau hau`);
-    }
+//     sound() {
+//         console.log(`Zwierzak robi hau hau`);
+//     }
+// }
+
+// class Dog extends Animal {
+//     constructor(name, age) {
+//         super(name)
+//         this.age = age
+//     }
+// }
+
+// class Cat extends Animal {
+//     sound() {
+//         console.log('miau');
+//     }
+// }
+
+// const dog = new Dog('Gamoń', 10)
+// const cat = new Cat('Pawent')
+// cat.sound()
+// dog.sound()
+// console.log(cat);
+
+// object.assign
+
+const user = {
+    name: 'Lily',
+    age:  23
 }
 
-class Dog extends Animal {
-    constructor(name, age) {
-        super(name)
-        this.age = age
-    }
+const pet = {
+    name: 'Drops',
+    type: 'dog'
 }
 
-class Cat extends Animal {
-    sound() {
-        console.log('miau');
-    }
-}
+const userInfo = Object.assign({}, user, pet)
 
-const dog = new Dog('Gamoń', 10)
-const cat = new Cat('Pawent')
-cat.sound()
-dog.sound()
-console.log(cat);
+const userCopy = Object.assign({}, user)
+userCopy.age = 25
+console.log(userCopy);
+console.log(user);
