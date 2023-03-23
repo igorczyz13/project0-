@@ -238,19 +238,71 @@
 
 // klasy - stara metoda
 
-function Person(name, age) {
-    this.name = name
-    this.age = age
+// function Person(name, age) {
+//     this.name = name
+//     this.age = age
+// }
+
+// Person.prototype.sayHI = function () {
+//     console.log(`Czesc, jestem ${this.name}!`);
+// }
+
+// Person.prototype.showAge = function () {
+//     console.log(`Mam ${this.age} lata!`);
+// }
+
+// const person1 = new Person('Igor', 27)
+// person1.sayHI()
+// person1.showAge()
+
+// klasy - nowy sposob
+
+// class Person2 {
+//     constructor(name, age) {
+//         this.name = name
+//         this.age = age
+//     }
+
+//     sayHI() {
+//         console.log(`Czesc, jestem ${this.name}!`);
+//     }
+
+//     showAge() {
+//         console.log(`Mam ${this.age} lata!`);
+//     }
+// }
+
+// const person2 = new Person('Franek', 34)
+// person2.sayHI()
+// person2.showAge()
+
+// extends & super
+
+class Animal {
+    constructor(name) {
+        this.name = name
+    }
+    
+    sound() {
+        console.log(`Zwierzak robi hau hau`);
+    }
 }
 
-Person.prototype.sayHI = function () {
-    console.log(`Czesc, jestem ${this.name}!`);
+class Dog extends Animal {
+    constructor(name, age) {
+        super(name)
+        this.age = age
+    }
 }
 
-Person.prototype.showAge = function () {
-    console.log(`Mam ${this.age} lata!`);
+class Cat extends Animal {
+    sound() {
+        console.log('miau');
+    }
 }
 
-const person1 = new Person('Igor', 27)
-person1.sayHI()
-person1.showAge()
+const dog = new Dog('Gamoń', 10)
+const cat = new Cat('Pawent')
+cat.sound()
+dog.sound()
+console.log(cat);
