@@ -309,19 +309,50 @@
 
 // object.assign
 
-const user = {
+// const user = {
+//     name: 'Lily',
+//     age:  23
+// }
+
+// const pet = {
+//     name: 'Drops',
+//     type: 'dog'
+// }
+
+// const userInfo = Object.assign({}, user, pet)
+
+// const userCopy = Object.assign({}, user)
+// userCopy.age = 25
+// console.log(userCopy);
+// console.log(user);
+
+// destrukturyzacja
+
+const person = {
     name: 'Lily',
-    age:  23
+    age: '23',
+    job: 'DJ',
+    car: {
+        brand: 'Doge',
+        model: 'Viper'
+    }
 }
 
-const pet = {
-    name: 'Drops',
-    type: 'dog'
+const showInfo = ({job, name, age}) => {
+    console.log(`${name} pracuje jako ${job} i mam ${age} lata.`);
 }
 
-const userInfo = Object.assign({}, user, pet)
+showInfo(person)
 
-const userCopy = Object.assign({}, user)
-userCopy.age = 25
-console.log(userCopy);
-console.log(user);
+const showInfo2 = ({car: {brand, model}}) => {
+    console.log(`Jej samochód to ${brand} ${model}.`);
+}
+
+showInfo2(person)
+
+const showInfo3 = () => {
+    const {car: {brand, model}} = person
+    console.log(`Jej samochód to ${brand} ${model}.`);
+}
+
+showInfo3()
