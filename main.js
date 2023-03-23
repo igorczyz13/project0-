@@ -218,20 +218,39 @@
 
 // call&apply
 
-const movie = {
-    title: 'Avengers',
+// const movie = {
+//     title: 'Avengers',
+// }
+
+// function showMovie(price, cinema) {
+//     console.log(`Film ${this.title}, cena: ${price}, kino: ${cinema}.`);
+// }
+
+// showMovie(30, 'SuperKino')
+
+// // funkcja.call(OBIEKT, ARGUMENT)
+// showMovie.call(movie, 35, 'SuperKino2')
+
+// // funkcja.apply(OBIEKT, TABLICA)
+// const movieData = [40, 'Super2']
+
+// showMovie.apply(movie, movieData)
+
+// klasy - stara metoda
+
+function Person(name, age) {
+    this.name = name
+    this.age = age
 }
 
-function showMovie(price, cinema) {
-    console.log(`Film ${this.title}, cena: ${price}, kino: ${cinema}.`);
+Person.prototype.sayHI = function () {
+    console.log(`Czesc, jestem ${this.name}!`);
 }
 
-showMovie(30, 'SuperKino')
+Person.prototype.showAge = function () {
+    console.log(`Mam ${this.age} lata!`);
+}
 
-// funkcja.call(OBIEKT, ARGUMENT)
-showMovie.call(movie, 35, 'SuperKino2')
-
-// funkcja.apply(OBIEKT, TABLICA)
-const movieData = [40, 'Super2']
-
-showMovie.apply(movie, movieData)
+const person1 = new Person('Igor', 27)
+person1.sayHI()
+person1.showAge()
