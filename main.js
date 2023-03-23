@@ -328,31 +328,47 @@
 
 // destrukturyzacja
 
-const person = {
-    name: 'Lily',
-    age: '23',
-    job: 'DJ',
-    car: {
-        brand: 'Doge',
-        model: 'Viper'
-    }
-}
+// const person = {
+//     name: 'Lily',
+//     age: '23',
+//     job: 'DJ',
+//     car: {
+//         brand: 'Doge',
+//         model: 'Viper'
+//     }
+// }
 
-const showInfo = ({job, name, age}) => {
-    console.log(`${name} pracuje jako ${job} i mam ${age} lata.`);
-}
+// const showInfo = ({job, name, age}) => {
+//     console.log(`${name} pracuje jako ${job} i mam ${age} lata.`);
+// }
 
-showInfo(person)
+// showInfo(person)
 
-const showInfo2 = ({car: {brand, model}}) => {
-    console.log(`Jej samochód to ${brand} ${model}.`);
-}
+// const showInfo2 = ({car: {brand, model}}) => {
+//     console.log(`Jej samochód to ${brand} ${model}.`);
+// }
 
-showInfo2(person)
+// showInfo2(person)
 
-const showInfo3 = () => {
-    const {car: {brand, model}} = person
-    console.log(`Jej samochód to ${brand} ${model}.`);
-}
+// const showInfo3 = () => {
+//     const {car: {brand, model}} = person
+//     console.log(`Jej samochód to ${brand} ${model}.`);
+// }
 
-showInfo3()
+// showInfo3()
+
+// destrukturyzacja tablic
+
+const colors = ['red', 'green', 'blue']
+
+const firstColor = colors[0]
+const secondColor = colors[1]
+
+const [first, second] = colors
+
+console.log(firstColor, secondColor);
+console.log(first, second);
+
+const [,,abcd] = colors
+console.log(abcd);
+
