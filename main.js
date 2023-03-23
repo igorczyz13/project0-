@@ -197,21 +197,41 @@
 
 // BIND
 
-function test() {
-    console.log(this);
-    console.log(this.name);
+// function test() {
+//     console.log(this);
+//     console.log(this.name);
+// }
+
+// const car1 = {
+//     name: 'Audi',
+// }
+
+// const car2 = {
+//     name: 'BMW',
+// }
+
+// const car3 = {
+//     name: 'Fiat',
+// }
+
+// test.bind(car1)()
+
+// call&apply
+
+const movie = {
+    title: 'Avengers',
 }
 
-const car1 = {
-    name: 'Audi',
+function showMovie(price, cinema) {
+    console.log(`Film ${this.title}, cena: ${price}, kino: ${cinema}.`);
 }
 
-const car2 = {
-    name: 'BMW',
-}
+showMovie(30, 'SuperKino')
 
-const car3 = {
-    name: 'Fiat',
-}
+// funkcja.call(OBIEKT, ARGUMENT)
+showMovie.call(movie, 35, 'SuperKino2')
 
-test.bind(car1)()
+// funkcja.apply(OBIEKT, TABLICA)
+const movieData = [40, 'Super2']
+
+showMovie.apply(movie, movieData)
