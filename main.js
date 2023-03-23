@@ -113,23 +113,52 @@
 
 // ---------------------------------------------------- prototype
 
-function User(name, age) {
+// function User(name, age) {
+//     this.name = name
+//     this.age = age
+// }
+
+// const newUser = new User('Klaudia, 23')
+// const newUser2 = new User('Lily', 34)
+// const newUser3 = new User('Majek', 45)
+
+// console.log(newUser, newUser2, newUser3);
+
+// User.prototype.hello = function () {
+//     console.log(`Cześć ${this.name}`);
+// }
+
+// User.prototype.country = 'Polska'
+
+// console.log(newUser2.country);
+
+// newUser3.hello()
+
+// console.log(this)
+
+// this w zwykłej funkcji wskazuje na obiekt, który jest na lewo od kropki
+
+const person = {
+    name: 'Lisa',
+    'fav-meal': 'ramen',
+    address: {
+        city: 'Kraków',
+        'zip-code': '30-009',
+        showCity: function () {
+            console.log(this);
+        }
+    }
+}
+
+person.address.showCity()
+
+// this w konstruktorze wskazuje na obiekt, stworzony na podstawie konstruktora
+
+function Food(name) {
     this.name = name
-    this.age = age
 }
 
-const newUser = new User('Klaudia, 23')
-const newUser2 = new User('Lily', 34)
-const newUser3 = new User('Majek', 45)
+const meal = new Food('Ramenik')
+const meal2 = new Food('Green Tea')
 
-console.log(newUser, newUser2, newUser3);
-
-User.prototype.hello = function () {
-    console.log(`Cześć ${this.name}`);
-}
-
-User.prototype.country = 'Polska'
-
-console.log(newUser2.country);
-
-newUser3.hello()
+console.log(meal, meal2);
