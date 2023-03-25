@@ -282,7 +282,7 @@
 //     constructor(name) {
 //         this.name = name
 //     }
-    
+
 //     sound() {
 //         console.log(`Zwierzak robi hau hau`);
 //     }
@@ -359,16 +359,25 @@
 
 // destrukturyzacja tablic
 
-const colors = ['red', 'green', 'blue']
+// const colors = ['red', 'green', 'blue']
 
-const firstColor = colors[0]
-const secondColor = colors[1]
+// const firstColor = colors[0]
+// const secondColor = colors[1]
 
-const [first, second] = colors
+// const [first, second] = colors
 
-console.log(firstColor, secondColor);
-console.log(first, second);
+// console.log(firstColor, secondColor);
+// console.log(first, second);
 
-const [,,abcd] = colors
-console.log(abcd);
+// const [,,abcd] = colors
+// console.log(abcd);
 
+// fetch, then, catch
+
+const btn = document.querySelector('button')
+const img = document.querySelector('img')
+
+const URL = 'https://dog.ceo/api/breeds/image/random'
+
+// fetch().then().catch()
+fetch(URL).then(res => console.log(res)).catch(err => console.error(err))
