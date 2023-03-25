@@ -374,10 +374,46 @@
 
 // fetch, then, catch
 
-const btn = document.querySelector('button')
-const img = document.querySelector('img')
+// const btn = document.querySelector('button')
+// const img = document.querySelector('img')
 
-const URL = 'https://dog.ceo/api/breeds/image/random'
+// const URL = 'https://dog.ceo/api/breeds/image/random'
 
-// fetch().then().catch()
-fetch(URL).then(res => console.log(res)).catch(err => console.error(err))
+// // fetch().then().catch()
+
+// btn.addEventListener('click', () => {
+//     fetch(URL)
+//         .then(res => res.json())
+//         .then(data => img.setAttribute('src', data.message))
+//         .catch(err => console.error(err))
+// })
+
+// promisy
+
+setTimeout(() => {
+    console.log(1);
+    setTimeout(() => {
+        console.log(2);
+        setTimeout(() => {
+            console.log(3);
+            setTimeout(() => {
+                console.log(4);
+                setTimeout(() => {
+                    console.log(5);
+                }, 300)
+            }, 300)
+        }, 300)
+    }, 300)
+}, 300)
+
+const test = new Promise((resolve, reject) => {
+    if (true) {
+        resolve('jest ok')
+    } else {
+        reject('błąd')
+    }
+})
+
+test
+    .then(info => console.log(info))
+    .catch(err => console.error(err))
