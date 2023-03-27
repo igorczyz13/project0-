@@ -326,7 +326,7 @@
 // console.log(userCopy);
 // console.log(user);
 
-// destrukturyzacja
+//  ---------------------------------------------------- destrukturyzacja
 
 // const person = {
 //     name: 'Lily',
@@ -357,7 +357,7 @@
 
 // showInfo3()
 
-// destrukturyzacja tablic
+// ---------------------------------------------------- destrukturyzacja tablic
 
 // const colors = ['red', 'green', 'blue']
 
@@ -388,32 +388,82 @@
 //         .catch(err => console.error(err))
 // })
 
-// promisy
+//  ---------------------------------------------------- promisy
 
-setTimeout(() => {
-    console.log(1);
-    setTimeout(() => {
-        console.log(2);
+// setTimeout(() => {
+//     console.log(1);
+//     setTimeout(() => {
+//         console.log(2);
+//         setTimeout(() => {
+//             console.log(3);
+//             setTimeout(() => {
+//                 console.log(4);
+//                 setTimeout(() => {
+//                     console.log(5);
+//                 }, 300)
+//             }, 300)
+//         }, 300)
+//     }, 300)
+// }, 300)
+
+// const test = new Promise((resolve, reject) => {
+//     if (true) {
+//         resolve('jest ok')
+//     } else {
+//         reject('błąd')
+//     }
+// })
+
+// test
+//     .then(info => console.log(info))
+//     .catch(err => console.error(err))
+
+// ---------------------------------------------------- async & await
+
+const checkAge = age => {
+    return new Promise((resolve, reject) => {
+        if (age >= 18) {
+            resolve()
+        } else {
+            reject('Masz za mało lat!')
+        }
+    })
+}
+
+const doubleCheck = () => {
+    return new Promise(resolve => {
+        console.log('Spradzam jeszcze raz...')
         setTimeout(() => {
-            console.log(3);
-            setTimeout(() => {
-                console.log(4);
-                setTimeout(() => {
-                    console.log(5);
-                }, 300)
-            }, 300)
-        }, 300)
-    }, 300)
-}, 300)
+            resolve('Faktycznie się zgadza.')
+        }, 1000)
+    })
+}
 
-const test = new Promise((resolve, reject) => {
-    if (true) {
-        resolve('jest ok')
-    } else {
-        reject('błąd')
+//  ---------------------------------------------------- pierwsza wersja promis
+
+// checkAge(50)
+//     .then(() => {
+//         console.log('Chyba możesz wejść.')
+//         return doubleCheck()
+//     })
+//     .then(res => console.log(res))
+//     .then(() => {
+//         console.log('Weryfikacja zakończona!');
+//     })
+//     .catch(error => console.error(error))
+
+//  ---------------------------------------------------- werja async
+
+async function test() {
+    try {
+        await checkAge(22)
+        console.log('Chyba możesz wejść.')
+        await doubleCheck()
+        console.log('Faktycznie, wiek się zgadza')
+        console.log('Weryfikacja zakończona')
+    } catch {
+        console.error('Błąd, masz za mało lat!');
     }
-})
+}
 
-test
-    .then(info => console.log(info))
-    .catch(err => console.error(err))
+test()
