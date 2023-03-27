@@ -420,24 +420,24 @@
 
 // ---------------------------------------------------- async & await
 
-const checkAge = age => {
-    return new Promise((resolve, reject) => {
-        if (age >= 18) {
-            resolve()
-        } else {
-            reject('Masz za mało lat!')
-        }
-    })
-}
+// const checkAge = age => {
+//     return new Promise((resolve, reject) => {
+//         if (age >= 18) {
+//             resolve()
+//         } else {
+//             reject('Masz za mało lat!')
+//         }
+//     })
+// }
 
-const doubleCheck = () => {
-    return new Promise(resolve => {
-        console.log('Spradzam jeszcze raz...')
-        setTimeout(() => {
-            resolve('Faktycznie się zgadza.')
-        }, 1000)
-    })
-}
+// const doubleCheck = () => {
+//     return new Promise(resolve => {
+//         console.log('Spradzam jeszcze raz...')
+//         setTimeout(() => {
+//             resolve('Faktycznie się zgadza.')
+//         }, 1000)
+//     })
+// }
 
 //  ---------------------------------------------------- pierwsza wersja promis
 
@@ -454,15 +454,41 @@ const doubleCheck = () => {
 
 //  ---------------------------------------------------- werja async
 
+// async function test() {
+//     try {
+//         await checkAge(22)
+//         console.log('Chyba możesz wejść.')
+//         await doubleCheck()
+//         console.log('Faktycznie, wiek się zgadza')
+//         console.log('Weryfikacja zakończona')
+//     } catch {
+//         console.error('Błąd, masz za mało lat!');
+//     }
+// }
+
+// test()
+
+// async & await part II
+
+const URL = 'https://dog.ceo/api/breeds/image/random'
+
+// funkcja zapisana fetchem
+
+fetch(URL)
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error))
+
+// funkcja zapisana async&awaitem
+
 async function test() {
     try {
-        await checkAge(22)
-        console.log('Chyba możesz wejść.')
-        await doubleCheck()
-        console.log('Faktycznie, wiek się zgadza')
-        console.log('Weryfikacja zakończona')
+        const res = await fetch(URL)
+        const data = await res.json()
+    
+        console.log(data);
     } catch {
-        console.error('Błąd, masz za mało lat!');
+        console.error('błąd');
     }
 }
 
