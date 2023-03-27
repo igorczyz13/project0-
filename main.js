@@ -470,26 +470,46 @@
 
 // async & await part II
 
-const URL = 'https://dog.ceo/api/breeds/image/random'
+// const URL = 'https://dog.ceo/api/breeds/image/random'
 
-// funkcja zapisana fetchem
+// // funkcja zapisana fetchem
+
+// fetch(URL)
+//     .then(res => res.json())
+//     .then(data => console.log(data))
+//     .catch(error => console.error(error))
+
+// // funkcja zapisana async&awaitem
+
+// async function test() {
+//     try {
+//         const res = await fetch(URL)
+//         const data = await res.json()
+    
+//         console.log(data);
+//     } catch {
+//         console.error('błąd');
+//     }
+// }
+
+// test()
+
+// axios
+
+const one = document.querySelector('.one')
+const two = document.querySelector('.two')
+const three = document.querySelector('.three')
+const URL = 'https://dog.ceo/api/breeds/image/random'
 
 fetch(URL)
     .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error))
+    .then(res => one.setAttribute('src', res.message))
 
-// funkcja zapisana async&awaitem
+axios.get(URL).then(res => two.setAttribute('src', res.data.message))
 
-async function test() {
-    try {
-        const res = await fetch(URL)
-        const data = await res.json()
-    
-        console.log(data);
-    } catch {
-        console.error('błąd');
-    }
+async function showImage() {
+    const response = await axios.get(URL)
+    three.setAttribute('src', response.data.message)
 }
 
-test()
+showImage()
